@@ -8,7 +8,7 @@
 
 #define MAX_PW_LEN 16
 
-int getpw(void);
+int getpwc(void);
 int is_equal(char *str1,char *str2);
 int main(int argc,char **argv)
 {
@@ -29,7 +29,7 @@ int main(int argc,char **argv)
 		{
 			//TODO: insert and crypt root password
 			printf("Insert new root password:");
-			while(((s=getche())!='\n')&&(c<(MAX_PW_LEN+1)))
+			while(((s=getpwc())!='\n')&&(c<(MAX_PW_LEN+1)))
 			{
 				printf("*");
 				given_pwd[c++]=s;
@@ -59,7 +59,7 @@ int main(int argc,char **argv)
 		//ask user for password
 		c=0;
 		printf("Give me the f*****g root password:");
-		while(((s=getpw())!='\n')&&(c<(MAX_PW_LEN+1)))
+		while(((s=getpwc())!='\n')&&(c<(MAX_PW_LEN+1)))
 		{
 			printf("*");
 			given_pwd[c++]=s;
@@ -88,7 +88,7 @@ int main(int argc,char **argv)
 	return 0;
 }
 
-int getpw(void)
+int getpwc(void)
 {
 	struct termios oldattr, newattr;
 	int ch;
