@@ -1,15 +1,15 @@
-LOCAL_PATH := $(call my-dir)
-include $(CLEAR_VARS)
+  LOCAL_PATH:= $(call my-dir)
 
-LOCAL_MODULE := unsu
-LOCAL_SRC_FILES := unsu.c 
+  include $(CLEAR_VARS)
 
-LOCAL_STATIC_LIBRARIES := \
-    liblog \
-    libc \
+  LOCAL_SRC_FILES := last_ssu.c
+ 
+  #LOCAL_C_INCLUDES := $(LOCAL_PATH)/shalibs
 
-LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLES)
-LOCAL_MODULE_TAGS := eng debug
-LOCAL_FORCE_STATIC_EXECUTABLE := true
+  LOCAL_LDLIBS := $(LOCAL_PATH)/lib_openssl/libcrypto.so
 
-include $(BUILD_EXECUTABLE)
+  LOCAL_SHARED_LIBRARIES := libc libcrypto
+
+  LOCAL_MODULE := ssu_beta
+
+  include $(BUILD_EXECUTABLE)
